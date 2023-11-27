@@ -29,8 +29,8 @@ public class Main {
         Comparator<Data> Pricecomp = (o1, o2) -> Float.compare(o1.price, o2.price);
         Comparator<Data> Editcomp = (o1, o2) -> Integer.compare(o1.edition,o2.edition);
 
-        Data.SortData(dataList, Namecomp);
-        //Data.saveToFile(dataList,"Name.txt");
+        Data.SortData(dataList, Authorcomp);
+        Data.saveToFile(dataList,"Author.txt");
         Data.printData(dataList);
     }
 }
