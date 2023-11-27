@@ -12,13 +12,14 @@ public class Data {
     float price;
     int edition;
 
+    ///констуктор
     public Data(String name, String author, float price, int edition){
         this.name = name;
         this.author = author;
         this.price = price;
         this.edition = edition;
     }
-
+    /// сортировка
     public static void SortData(List<Data>dataList, Comparator<Data> comparator){
         for (int i = 0; i < dataList.size() - 1; i++) {
             for (int j = 0; j < dataList.size() - i - 1; j++) {
@@ -30,6 +31,7 @@ public class Data {
             }
         }
     }
+    ///сохрарнние в файл
     public static void saveToFile(List<Data> dataList, String fileName) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             for (Data data : dataList) {
@@ -47,7 +49,7 @@ public class Data {
             e.printStackTrace();
         }
     }
-
+    /// вывод на экран
     public static void printData(List<Data> dataList) {
         for (Data data : dataList) {
             System.out.printf("%40s %30s %10.2f %d\n", data.name, data.author, data.price, data.edition);

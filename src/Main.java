@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Comparator;
 public class Main {
     public static void main(String[] args) {
-
+        /// создание списка с типом Data
         List<Data> dataList = new ArrayList<>();
         dataList.add(new Data("To Kill a Mockingbird", "Harper Lee", 10.99f, 1));
         dataList.add(new Data("1984", "George Orwell", 9.99f, 1));
@@ -23,33 +23,14 @@ public class Main {
         dataList.add(new Data("The Hobbit", "J.R.R. Tolkien", 9.99f, 2));
         dataList.add(new Data("War and Peace", "Leo Tolstoy", 13.99f, 1));
 
-        Comparator<Data> Authorcomp = new Comparator<Data>() {
-            @Override
-            public int compare(Data o1, Data o2) {
-                return o1.author.compareTo(o2.author);
-            }
-        };
-        Comparator<Data> Namecomp = new Comparator<Data>() {
-            @Override
-            public int compare(Data o1, Data o2) {
-                return o1.name.compareTo(o2.name);
-            }
-        };
-        Comparator<Data> Pricecomp = new Comparator<Data>() {
-            @Override
-            public int compare(Data o1, Data o2) {
-                return Float.compare(o1.price, o2.price);
-            }
-        };
-        Comparator<Data> Editcomp = new Comparator<Data>() {
-            @Override
-            public int compare(Data o1, Data o2) {
-                return Integer.compare(o1.edition,o2.edition);
-            }
-        };
+        /// Наши компараторы для сравнения данных
+        Comparator<Data> Authorcomp = (o1, o2) -> o1.author.compareTo(o2.author);
+        Comparator<Data> Namecomp = (o1, o2) -> o1.name.compareTo(o2.name);
+        Comparator<Data> Pricecomp = (o1, o2) -> Float.compare(o1.price, o2.price);
+        Comparator<Data> Editcomp = (o1, o2) -> Integer.compare(o1.edition,o2.edition);
 
         Data.SortData(dataList, Namecomp);
-        Data.saveToFile(dataList,"Name.txt");
+        //Data.saveToFile(dataList,"Name.txt");
         Data.printData(dataList);
     }
 }
